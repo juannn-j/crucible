@@ -11,7 +11,23 @@ is_group_installed() {
 }
 
 # Function to install packages if not already installed
-install_packages() {
+install_packages_pacman() {
+  local packages=("$@")
+  local to_install=()
+
+  for pkg in "${packages[@]}"; do
+    if ! is_installed "$pkg" && ! is_group_installed "$pkg"; then
+      to_install+=("$pkg")
+    fi
+  done
+
+  if [ ${#to_install[@]} -ne 0 ]; then
+    echo "Installing: ${to_install[*]}"
+    sudo pacman -S --noconfirm "${to_install[@]}"
+  fi
+} 
+
+install_packages_yay() {
   local packages=("$@")
   local to_install=()
 
@@ -26,3 +42,4 @@ install_packages() {
     yay -S --noconfirm "${to_install[@]}"
   fi
 } 
+

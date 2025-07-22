@@ -1,0 +1,8 @@
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-syntax-highlighting
+jeffreytse/zsh-vi-mode
+marlonrichert/zsh-autocomplete
+# romkatv/powerlevel10k
+# ohmyzsh/ohmyzsh path:lib/git.zsh
+# thefuck/oh-my-zsh path:plugins/thefuck
+
